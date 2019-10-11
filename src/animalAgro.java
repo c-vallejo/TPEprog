@@ -1,4 +1,4 @@
 
-public class animalAgro extends elementoAgropecuario{
+public class animalAgro extends ElementoAgropecuario{
 
 }
