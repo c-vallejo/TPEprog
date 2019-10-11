@@ -1,4 +1,4 @@
 
-abstract class elementoAgropecuario {
+public abstract class elementoAgropecuario {
 
 }
