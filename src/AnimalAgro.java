@@ -7,6 +7,7 @@ public class AnimalAgro extends ElementoAgropecuario{
 	private char sexo;
 	private boolean capado;
 	private int paridos;
+	private String categoria = "";
 	
 	public AnimalAgro(double pes, int eda, String raz, char sex, boolean cap){
 		id++;
@@ -19,8 +20,22 @@ public class AnimalAgro extends ElementoAgropecuario{
 		
 	}
 	
-
-
+	public void Clasificar(Clasificador cla){
+		cla.CategorizarAnimal(this);
+	}
+	
+	
+	public String getCategoria (){
+		return categoria;
+	}
+	
+	public void setCategoria(String cat){
+		categoria += (" - " + cat );
+	}
+	
+	public void borrarCategoria(){
+		categoria = "";
+	}
 	/**
 	 * @return the peso
 	 */
@@ -98,17 +113,23 @@ public class AnimalAgro extends ElementoAgropecuario{
 		return sexo;
 	}
 	
-	public boolean esAnimal() {
-		return true;
-	}
+	
 	
 	public void actualizarPeso(double pes) {
 		this.setPeso(pes);
 	}
+
+	
+	public ArrayList<AnimalAgro> getAnimales(){
+		ArrayList<AnimalAgro> res = new ArrayList<AnimalAgro>();
+		res.add(this);
+		return res;
+	}
+	
 	
 	public ArrayList<AnimalAgro> buscar(Criterio c){
 		ArrayList<AnimalAgro> res = new ArrayList<AnimalAgro>();
-		if(c.cumple((AnimalAgro)this)) {
+		if(c.cumple(this)) {
 			res.add(this);
 		}
 		return res;
