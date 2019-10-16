@@ -8,10 +8,26 @@ public class Clasificador {
 		crit = c;
 		etiqueta = etiq;
 	}
-	
-	public void CategorizarAnimal (AnimalAgro ani){
-		if (crit.cumple(ani))
-			ani.setCategoria(etiqueta);
+
+	/**
+	 * @return the etiqueta
+	 */
+	public String getEtiqueta() {
+		return etiqueta;
 	}
 
+	/**
+	 * @param etiqueta the etiqueta to set
+	 */
+	public void setEtiqueta(String etiqueta) {
+		this.etiqueta = etiqueta;
+	}
+
+	/**
+	 * @return the crit
+	 */
+	public Criterio getCrit() {
+		return crit;
+	}
+	
 }

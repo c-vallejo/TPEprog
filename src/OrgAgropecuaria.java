@@ -43,19 +43,27 @@ public class OrgAgropecuaria extends ElementoAgropecuario {
 		return res;	
 	}
 	
-	public void Clasificar(Clasificador cla){
+	public void addClasificador(Clasificador cla) {
+		clasificacion.add(cla);
+	}
+	
+	public String clasificar(AnimalAgro ani){
+	
+		Integer a = ani.getId();
+		String categoria = a.toString() ;
 		
-		for (ElementoAgropecuario elem : elementos){
-			elem.Clasificar(cla);
-		}	
+		for (Clasificador cla : clasificacion) {
+			if (cla.getCrit().cumple(ani)) 
+				categoria += "-" + cla.getEtiqueta();
+		}
+		
+		return categoria;
 			
 	}
 	
-	
-	
-	//hacer
+		
 	public int cantidadAnimales (ArrayList<AnimalAgro> animales){
-		return 0;
+		return this.getAnimales().size();
 	}
 	
 	

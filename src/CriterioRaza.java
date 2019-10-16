@@ -8,7 +8,7 @@ public class CriterioRaza implements Criterio {
 	}
 	
 	public boolean cumple(AnimalAgro a) {
-		return(a.getRaza() == raza);
+		return(a.getRaza().equals(raza));
 	}
 }
 

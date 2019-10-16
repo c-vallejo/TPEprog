@@ -7,7 +7,6 @@ public class AnimalAgro extends ElementoAgropecuario{
 	private char sexo;
 	private boolean capado;
 	private int paridos;
-	private String categoria = "";
 	
 	public AnimalAgro(double pes, int eda, String raz, char sex, boolean cap){
 		id++;
@@ -20,22 +19,6 @@ public class AnimalAgro extends ElementoAgropecuario{
 		
 	}
 	
-	public void Clasificar(Clasificador cla){
-		cla.CategorizarAnimal(this);
-	}
-	
-	
-	public String getCategoria (){
-		return categoria;
-	}
-	
-	public void setCategoria(String cat){
-		categoria += (" - " + cat );
-	}
-	
-	public void borrarCategoria(){
-		categoria = "";
-	}
 	/**
 	 * @return the peso
 	 */
@@ -95,7 +78,7 @@ public class AnimalAgro extends ElementoAgropecuario{
 	/**
 	 * @return the id
 	 */
-	public static int getId() {
+	public int getId() {
 		return id;
 	}
 
