@@ -97,14 +97,34 @@ public class OrgAgropecuaria extends ElementoAgropecuario {
 		return peso_total;
 	}
 	
+	public boolean darDeBaja(Integer i) {
+		boolean aux = false;
+		for(ElementoAgropecuario elem : elementos) {
+			if (elem.darDeBaja(i)) {
+				elementos.remove(elem);
+				aux = true;
+			}
+		}
+		return aux;
+	}
 	
-	
-	
-	
-	
-	
-	
-	
-	
+	public void vender(Camion c) {
+		ArrayList<AnimalAgro> animalesVenta = new ArrayList<AnimalAgro>();
+		animalesVenta = this.getAnimales();
+		Criterio crit = c.getCriterio();
+		int indice = 0;
+		int capacidad = 0;
+		while (capacidad<c.getCapacidad() && indice<animalesVenta.size()) {
+			if (crit.cumple(animalesVenta.get(indice))) {
+				c.cargarCamion(animalesVenta.get(indice));
+				this.darDeBaja(animalesVenta.get(indice).getId());
+				indice++;
+				capacidad++;
+			}else{
+				indice++;
+			}
+		}
+	}
+		
 	
 }
