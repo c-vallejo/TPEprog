@@ -61,12 +61,41 @@ public class OrgAgropecuaria extends ElementoAgropecuario {
 			
 	}
 	
-		
 	public int cantidadAnimales (ArrayList<AnimalAgro> animales){
 		return this.getAnimales().size();
 	}
 	
+	public double promedioPeso(ArrayList<AnimalAgro> grupoAnimal) {
+		double peso_total = 0;	
+		for (AnimalAgro ani : grupoAnimal) {
+			peso_total+= ani.getPeso();
+		}
+		
+		if (grupoAnimal.size()>0) 
+			return (peso_total/grupoAnimal.size());
+		else 
+			return 0;
+	}
 	
+	public double promedioEdad(ArrayList<AnimalAgro> grupoAnimal) {
+		double edad_total = 0;	
+		for (AnimalAgro ani : grupoAnimal) {
+			edad_total+= ani.getEdad();
+		}
+		
+		if (grupoAnimal.size()>0) 
+			return (edad_total/grupoAnimal.size());
+		else 
+			return 0;
+	}
+	
+	public double pesoTotal(ArrayList<AnimalAgro> grupoAnimal) {
+		double peso_total = 0;	
+		for (AnimalAgro ani : grupoAnimal) {
+			peso_total+= ani.getPeso();
+		}
+		return peso_total;
+	}
 	
 	
 	
