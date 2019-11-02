@@ -6,11 +6,11 @@ public class AnimalAgro extends ElementoAgropecuario{
 	private double peso;
 	private int edad;
 	private String raza;
-	private char sexo;
+	private Character sexo;
 	private boolean capado;
 	private int paridos;
 	
-	public AnimalAgro(double pes, int eda, String raz, char sex, boolean cap){
+	public AnimalAgro(double pes, int eda, String raz, Character sex, boolean cap){
 		contador++;
 		id=contador;
 		peso = pes;
@@ -72,7 +72,7 @@ public class AnimalAgro extends ElementoAgropecuario{
 	}
 
 	/**
-	 * @param paridos the paridos to set
+	 * @param paridos the paridos to sethara
 	 */
 	public void setParidos(int paridos) {
 		this.paridos = paridos;
@@ -95,7 +95,7 @@ public class AnimalAgro extends ElementoAgropecuario{
 	/**
 	 * @return the sexo
 	 */
-	public char getSexo() {
+	public Character getSexo() {
 		return sexo;
 	}
 	
