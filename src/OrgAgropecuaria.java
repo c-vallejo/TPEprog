@@ -61,7 +61,7 @@ public class OrgAgropecuaria extends ElementoAgropecuario {
 			
 	}
 	
-	public int cantidadAnimales (ArrayList<AnimalAgro> animales){
+	public int cantidadAnimales (){
 		return this.getAnimales().size();
 	}
 	
