@@ -129,4 +129,11 @@ public class AnimalAgro extends ElementoAgropecuario{
 	public double getPromedioEdad() {
 		return edad;
 	}
+	
+	public double pesoTotal() {
+		return peso;
+	}
 }
+	
+	
+

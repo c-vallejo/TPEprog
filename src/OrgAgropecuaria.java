@@ -4,12 +4,12 @@ import java.util.ArrayList;
 public class OrgAgropecuaria extends ElementoAgropecuario {
 	private String tipo;
 	private ArrayList<ElementoAgropecuario> elementos;
-	private ArrayList<Clasificador> clasificacion;
+	
 	
 	public OrgAgropecuaria (String tip){
 		tipo = tip;
 		elementos = new ArrayList<ElementoAgropecuario>();
-		clasificacion = new ArrayList<Clasificador>();
+		
 	}
 	
 	
@@ -43,24 +43,8 @@ public class OrgAgropecuaria extends ElementoAgropecuario {
 		return res;	
 	}
 	
-	public void addClasificador(Clasificador cla) {
-		clasificacion.add(cla);
-	}
-	
-	public String clasificar(AnimalAgro ani){
-	
-		Integer a = ani.getId();
-		String categoria = a.toString() ;
-		
-		for (Clasificador cla : clasificacion) {
-			String aux =cla.clasificar(ani);
-			if (aux!=null)
-				categoria += "-" + aux;
-		}
-		
-		return categoria;
-			
-	}
+
+
 	
 	public int cantidadAnimales (){
 		return this.getAnimales().size();
@@ -87,12 +71,11 @@ public class OrgAgropecuaria extends ElementoAgropecuario {
 	}
 	
 	public double pesoTotal() {
-		double peso_total = 0;
-		ArrayList<AnimalAgro> grupoAnimal = this.getAnimales();
-		for (AnimalAgro ani : grupoAnimal) {
-			peso_total+= ani.getPeso();
+		double pesoT =0 ; 
+		for (ElementoAgropecuario ele : elementos) {
+			pesoT += ele.pesoTotal();
 		}
-		return peso_total;
+		return pesoT;
 	}
 	
 	public boolean darDeBaja(Integer i) {
@@ -106,9 +89,7 @@ public class OrgAgropecuaria extends ElementoAgropecuario {
 		return aux;
 	}
 	
-	public void vender(Camion c) {
-	  c.cargarCamion(this);
-	}
+		
 		
 	
 }

@@ -7,4 +7,6 @@ public abstract class ElementoAgropecuario {
 	public abstract ArrayList<AnimalAgro> getAnimales();
 	public abstract boolean darDeBaja(Integer id);
 	public abstract double getPromedioEdad();
+	public abstract double pesoTotal();
+	
 }
