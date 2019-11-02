@@ -2,24 +2,17 @@ import java.util.ArrayList;
 
 
 public class OrgAgropecuaria extends ElementoAgropecuario {
-	private String tipo;
+	
 	private ArrayList<ElementoAgropecuario> elementos;
 	
-	
-	public OrgAgropecuaria (String tip){
-		tipo = tip;
+	public OrgAgropecuaria (){
+		
 		elementos = new ArrayList<ElementoAgropecuario>();
 		
 	}
 	
-	
-	
-	public void setTipo (String tip){
-		tipo = tip;
-	}
-	
-	public String getTipo(){
-		return tipo;
+	public OrgAgropecuaria getOrganizacion() {
+		return this;
 	}
 	
 	public ArrayList<AnimalAgro> getAnimales(){
@@ -80,13 +73,22 @@ public class OrgAgropecuaria extends ElementoAgropecuario {
 	
 	public boolean darDeBaja(Integer i) {
 		boolean aux = false;
-		for(ElementoAgropecuario elem : elementos) {
-			if (elem.darDeBaja(i)) {
-				elementos.remove(elem);
+		//for(ElementoAgropecuario elem : elementos) {
+		for (int j =0;j<elementos.size();j++) {	
+			if (elementos.get(j).darDeBaja(i)) {
+			//if (elem.darDeBaja(i)) {
+				
+				elementos.remove(elementos.get(j));
 				aux = true;
+				//System.out.println("Eliminar animal  (DarDeBaja)");
+				//System.out.println("El animal : "+elem.getId()+"-raza : "+a.getRaza()+" - pesa : "+a.getPeso());
+				
 			}
 		}
 		return aux;
+		
+		
+					
 	}
 	
 		

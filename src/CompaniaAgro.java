@@ -6,13 +6,13 @@ public class CompaniaAgro {
 	private OrgAgropecuaria principal;
 	private ArrayList<Clasificador> clasificacion;
 	
-	public CompaniaAgro(String n, String tipo) {
+	public CompaniaAgro(String n) {
 		nombre = n;
-		principal = new OrgAgropecuaria(tipo);
+		principal = new OrgAgropecuaria();
 		clasificacion = new ArrayList<Clasificador>();
 	}
 	
-	
+
 	
 	public String getNombre() {
 		return nombre;

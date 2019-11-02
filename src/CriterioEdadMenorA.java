@@ -1,5 +1,5 @@
 
-public class CriterioEdadMenorA {
+public class CriterioEdadMenorA implements Criterio{
 
 	int edad;
 	
