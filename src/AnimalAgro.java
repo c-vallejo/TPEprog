@@ -8,14 +8,6 @@ public class AnimalAgro extends ElementoAgropecuario{
 	private boolean capado;
 	private int paridos;
 	
-	public boolean darDeBaja(Integer i) {
-		if (this.id.equals(i))
-			return true;
-		else
-			return false;
-	}
-	
-	
 	public AnimalAgro(double pes, int eda, String raz, char sex, boolean cap){
 		id++;
 		peso = pes;
@@ -124,5 +116,16 @@ public class AnimalAgro extends ElementoAgropecuario{
 			res.add(this);
 		}
 		return res;
+	}
+	
+	public boolean darDeBaja(Integer i) {
+		if (this.getId().equals(i))
+			return true;
+		else
+			return false;
+	}
+	
+	public double getPromedioEdad() {
+		return edad;
 	}
 }

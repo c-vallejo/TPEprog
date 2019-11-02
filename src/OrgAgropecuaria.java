@@ -53,44 +53,42 @@ public class OrgAgropecuaria extends ElementoAgropecuario {
 		String categoria = a.toString() ;
 		
 		for (Clasificador cla : clasificacion) {
-			if (cla.getCrit().cumple(ani)) 
-				categoria += "-" + cla.getEtiqueta();
+			String aux =cla.clasificar(ani);
+			if (aux!=null)
+				categoria += "-" + aux;
 		}
 		
 		return categoria;
 			
 	}
 	
-	public int cantidadAnimales (ArrayList<AnimalAgro> animales){
+	public int cantidadAnimales (){
 		return this.getAnimales().size();
 	}
 	
-	public double promedioPeso(ArrayList<AnimalAgro> grupoAnimal) {
-		double peso_total = 0;	
-		for (AnimalAgro ani : grupoAnimal) {
-			peso_total+= ani.getPeso();
-		}
-		
-		if (grupoAnimal.size()>0) 
-			return (peso_total/grupoAnimal.size());
+
+	public double promedioPeso() {
+		if (this.getAnimales().size()>0) 
+			return (this.pesoTotal()/this.getAnimales().size());
 		else 
 			return 0;
 	}
 	
-	public double promedioEdad(ArrayList<AnimalAgro> grupoAnimal) {
-		double edad_total = 0;	
-		for (AnimalAgro ani : grupoAnimal) {
-			edad_total+= ani.getEdad();
+	public double getPromedioEdad() {
+		double edad_total = 0;
+		for (ElementoAgropecuario elem : elementos) {
+			edad_total+= elem.getPromedioEdad();
 		}
 		
-		if (grupoAnimal.size()>0) 
-			return (edad_total/grupoAnimal.size());
+		if (this.cantidadAnimales()>0) 
+			return (edad_total/this.cantidadAnimales());
 		else 
 			return 0;
 	}
 	
-	public double pesoTotal(ArrayList<AnimalAgro> grupoAnimal) {
-		double peso_total = 0;	
+	public double pesoTotal() {
+		double peso_total = 0;
+		ArrayList<AnimalAgro> grupoAnimal = this.getAnimales();
 		for (AnimalAgro ani : grupoAnimal) {
 			peso_total+= ani.getPeso();
 		}
@@ -109,21 +107,7 @@ public class OrgAgropecuaria extends ElementoAgropecuario {
 	}
 	
 	public void vender(Camion c) {
-		ArrayList<AnimalAgro> animalesVenta = new ArrayList<AnimalAgro>();
-		animalesVenta = this.getAnimales();
-		Criterio crit = c.getCriterio();
-		int indice = 0;
-		int capacidad = 0;
-		while (capacidad<c.getCapacidad() && indice<animalesVenta.size()) {
-			if (crit.cumple(animalesVenta.get(indice))) {
-				c.cargarCamion(animalesVenta.get(indice));
-				this.darDeBaja(animalesVenta.get(indice).getId());
-				indice++;
-				capacidad++;
-			}else{
-				indice++;
-			}
-		}
+	  c.cargarCamion(this);
 	}
 		
 	

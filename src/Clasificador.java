@@ -29,5 +29,13 @@ public class Clasificador {
 	public Criterio getCrit() {
 		return crit;
 	}
-	
+	public String clasificar(AnimalAgro aa) {
+		if (crit.cumple(aa))
+			return etiqueta;
+		else
+			return null;
+	}
+			
+			
+			
 }
