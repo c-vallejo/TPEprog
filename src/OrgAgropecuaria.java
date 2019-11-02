@@ -73,16 +73,10 @@ public class OrgAgropecuaria extends ElementoAgropecuario {
 	
 	public boolean darDeBaja(Integer i) {
 		boolean aux = false;
-		//for(ElementoAgropecuario elem : elementos) {
 		for (int j =0;j<elementos.size();j++) {	
 			if (elementos.get(j).darDeBaja(i)) {
-			//if (elem.darDeBaja(i)) {
-				
 				elementos.remove(elementos.get(j));
 				aux = true;
-				//System.out.println("Eliminar animal  (DarDeBaja)");
-				//System.out.println("El animal : "+elem.getId()+"-raza : "+a.getRaza()+" - pesa : "+a.getPeso());
-				
 			}
 		}
 		return aux;
