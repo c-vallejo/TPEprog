@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 public class AnimalAgro extends ElementoAgropecuario{
+	
 	private static Integer id=0;
 	private double peso;
 	private int edad;

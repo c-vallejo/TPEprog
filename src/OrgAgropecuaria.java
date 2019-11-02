@@ -28,7 +28,7 @@ public class OrgAgropecuaria extends ElementoAgropecuario {
 			animales.addAll(elem.getAnimales());
 		}
 		return animales;
-		}
+	}
 	
 	
 	public void addElementos(ElementoAgropecuario elemento){
